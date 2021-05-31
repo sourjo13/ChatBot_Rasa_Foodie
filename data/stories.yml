@@ -1,0 +1,36 @@
+
+version: "2.0"
+stories:
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: location
+    entities:
+    - location: bengaluru
+  - slot_was_set:
+    - location: bengaluru
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_price
+  - intent: price
+    entities:
+    - price: high
+  - slot_was_set:
+    - price: high
+  - action: action_search_restaurants
+  - action: utter_email_prompt
+  - intent: email
+    entities:
+    - email: phaneendra84@gmail.com
+  - slot_was_set:
+    - email: phaneendra84@gmail.com
+  - action: action_send_email
+  - action: utter_goodbye
+  - action: action_restart
